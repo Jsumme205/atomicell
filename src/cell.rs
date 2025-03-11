@@ -62,7 +62,7 @@ impl<T> AtomicCell<T> {
     /// let five = c.into_inner();
     /// ```
     #[inline(always)]
-    pub fn into_inner(self) -> T {
+    pub const fn into_inner(self) -> T {
         // TODO: Add `const` when `UnsafeCell::into_inner` is stabilized as const.
         self.value.into_inner()
     }
@@ -365,7 +365,7 @@ where
     /// assert_eq!(c, AtomicCell::new(6));
     /// ```
     #[inline]
-    pub fn get_mut(&mut self) -> &mut T {
+    pub const fn get_mut(&mut self) -> &mut T {
         self.value.get_mut()
     }
 
