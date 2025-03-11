@@ -211,7 +211,7 @@ where
     /// }
     /// ```
     #[inline]
-    pub fn into_split(r: Ref<'a, T>) -> (NonNull<T>, AtomicBorrow<'a>) {
+    pub const fn into_split(r: Ref<'a, T>) -> (NonNull<T>, AtomicBorrow<'a>) {
         (r.value, r.borrow)
     }
 
