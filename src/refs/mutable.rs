@@ -236,7 +236,7 @@ where
     /// }
     /// ```
     #[inline]
-    pub fn into_split(r: RefMut<'a, T>) -> (NonNull<T>, AtomicBorrowMut<'a>) {
+    pub const fn into_split(r: RefMut<'a, T>) -> (NonNull<T>, AtomicBorrowMut<'a>) {
         (r.value, r.borrow)
     }
 
