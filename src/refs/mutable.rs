@@ -399,7 +399,7 @@ where
     /// assert!(cell.try_borrow().is_none());
     /// assert!(cell.try_borrow_mut().is_none());
     /// ```
-    pub fn leak(mut r: RefMut<'a, T>) -> &'a mut T {
+    pub const fn leak(mut r: RefMut<'a, T>) -> &'a mut T {
         core::mem::forget(r.borrow);
         // SAFETY: We hold an exclusive lock on the pointer.
         unsafe { r.value.as_mut() }
